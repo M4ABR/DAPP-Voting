@@ -141,7 +141,7 @@ contract Create {
 
     //////----VOTER SECTION---------------////
 
-    function voterRigth(
+    function voterRight(
         address _address,
         string memory _name,
         string memory _image,
@@ -220,7 +220,9 @@ contract Create {
         );
     }
 
-    function getVoterList() public view returns (address[] memory) {
-        return votersAddress;
-    }
+  function getVoterList() public view returns (address[] memory) {
+    require(votersAddress.length > 0, "No voters available");
+    return votersAddress;
+}
+
 }

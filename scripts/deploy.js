@@ -1,17 +1,21 @@
-
-const hre=require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-const Create =await hre.ethers.getContractFactory("Create");
-const create=await Create.deploy();
+  const [deployer] = await hre.ethers.getSigners();
 
-await create.deployed();
+  console.log("Deploying with account:", deployer.address);
+  const balance = await deployer.getBalance();
+  console.log("Deployer balance:", hre.ethers.utils.formatEther(balance), "ETH");
 
-console.log("Lock with 1 ETH deployed to:", create.address);
+  const Create = await hre.ethers.getContractFactory("Create");
+  const create = await Create.deploy();
 
+  await create.deployed();
+
+  console.log("Contract deployed to:", create.address);
 }
 
-main().catch((error)=>{
-    console.error(error);
-    process.exitCode=1;
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
 });
