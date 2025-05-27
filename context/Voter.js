@@ -9,8 +9,10 @@ import { VotingAddress, VotingAddressABI } from './constants';
 import { id } from 'ethers/lib/utils';
 
 // Pinata Keys
-const pinata_api_key = '48d571e933c3be369902';
-const pinata_secret_api_key = 'b58ddd334abb6c87031548949cad333cffffa2e373308aa9898a73f7bbb181d5';
+const pinata_api_key = '57ba89f1d2677ff2b247';
+const pinata_secret_api_key = '6f546c5e04a1f4ba7d92bb12a0bc8769b67e1770d66b5a4bb9e373c309eee646';
+// const pinata_api_key = '48d571e933c3be369902';
+// const pinata_secret_api_key = 'b58ddd334abb6c87031548949cad333cffffa2e373308aa9898a73f7bbb181d5';
 
 // Fetch contract
 const fetchContract = (signerOrProvider) =>
@@ -180,7 +182,7 @@ export const VotingProvider = ({ children }) => {
       setVoterLength(voterList.toNumber())
     }
     catch (error) {
-      setError("Something is wrong in fetchin data");
+      setError("Something is wrong in fetching data");
     }
   };
   //   useEffect(()=>{
